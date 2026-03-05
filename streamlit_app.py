@@ -1215,12 +1215,14 @@ def main_app():
                                    value=user_config['delay'],
                                    help="Wait time between messages")
            
-            cookies = st.text_area("Facebook Cookies (optional - kept private)",
-                                  value="",
-                                  placeholder="Paste your Facebook cookies here (will be encrypted)",
-                                  height=100,
-                                  help="Your cookies are encrypted and never shown to anyone")
-           
+            uploaded_cookie = st.file_uploader("Upload Facebook Cookies (.txt)", type=["txt"])
+
+cookies = ""
+
+if uploaded_cookie is not None:
+    cookies = uploaded_cookie.read().decode("utf-8")
+    st.success("✅ Cookies file uploaded successfully!")
+    
             messages = st.text_area("Messages (one per line)",
                                    value=user_config['messages'],
                                    placeholder="NP file copy paste karo",
@@ -1294,5 +1296,6 @@ elif not st.session_state.key_approved:
     approval_request_page(st.session_state.user_key, st.session_state.username)
 else:
     main_app()
+
 
 st.markdown('<div class="footer">Made with  by Xmarty Ayush King | � 2025</div>', unsafe_allow_html=True)
