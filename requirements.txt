@@ -1,6 +1,6 @@
 --only-binary=cryptography
-cffi>=15.0.0
-cryptography>=43.0.0
+cffi>=1.15.0
+cryptography>=41.0.0
 streamlit>=1.28.0
 selenium==4.35.0
 requests==2.32.5
