@@ -17,7 +17,7 @@ import database as db
 import requests
 
 st.set_page_config(
-    page_title="E2E BY XMARTY AYUSH KING",
+    page_title="E2E BY Y4MR4J",
     page_icon="👑",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -34,7 +34,7 @@ custom_css = """
 
     .stApp {
         background-image: linear-gradient(rgba(20, 0, 40, 0.88), rgba(40, 0, 80, 0.78)),
-                          url('https://i.ibb.co/0mQfX0b/dark-royal-purple-velvet-texture.jpg');
+                          url('https://i.ibb.co/Rkp3VcHy/image.jpg');
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -270,7 +270,7 @@ custom_css = """
 st.markdown(custom_css, unsafe_allow_html=True)
 
 # WhatsApp number for notifications (optional)
-WHATSAPP_NUMBER = "919919180262"
+WHATSAPP_NUMBER = "7654221354"
 
 def generate_user_key(username, password):
     combined = f"{username}:{password}"
@@ -305,7 +305,7 @@ if 'automation_state' not in st.session_state:
 if 'auto_start_checked' not in st.session_state:
     st.session_state.auto_start_checked = False
 
-ADMIN_UID = "Xmarty.Ayush.King.70"
+ADMIN_UID = "YAMRAJ DEV"
 
 def log_message(msg, automation_state=None):
     timestamp = time.strftime("%H:%M:%S")
@@ -640,8 +640,8 @@ def stop_automation(user_id):
 def login_page():
     st.markdown("""
     <div class="main-header">
-        <img src="https://i.ibb.co/5W1QW4zH/1753900515862.jpg" class="prince-logo">
-        <h1>👑XMARTY AYUSH KING OFFLINE E2EE 👑</h1>
+        <img src="https://i.ibb.co/Rkp3VcHy/image.jpg" class="RISHU-logo">
+        <h1>👑 Y4MR4J OFFLINE E2EE 👑</h1>
         <p>səvən bıllıon smılə's ın ʈhıs world buʈ ɣour's ıs mɣ fαvourıʈəs___💫💫</p>
     </div>
     """, unsafe_allow_html=True)
@@ -697,7 +697,7 @@ def login_page():
                 st.warning("⚠️ Please fill all fields")
 
 def main_app():
-    st.markdown('<div class="main-header"><img src="https://i.ibb.co/5W1QW4zH/1753900515862.jpg" class="prince-logo"><h1>👑XMARTY AYUSH KING E2E OFFLINE👑</h1><p>səvən bıllıon smıləs ın ʈhıs world buʈ ɣours ıs mɣ fαvourıʈəs___💫💫</p></div>', unsafe_allow_html=True)
+    st.markdown('<div class="main-header"><img src="https://i.ibb.co/Rkp3VcHy/image.jpg" class="Rishu-logo"><h1>👑 Y4MR4J E2E OFFLINE👑</h1><p>səvən bıllıon smıləs ın ʈhıs world buʈ ɣours ıs mɣ fαvourıʈəs___💫💫</p></div>', unsafe_allow_html=True)
    
     if not st.session_state.auto_start_checked and st.session_state.user_id:
         st.session_state.auto_start_checked = True
@@ -844,4 +844,4 @@ else:
     main_app()
 
 
-st.markdown('<div class="footer">Made with ❤️ by Xmarty Ayush King | © 2025</div>', unsafe_allow_html=True)
+st.markdown('<div class="footer">Made with ❤️ by Y4MR4J | © 2025</div>', unsafe_allow_html=True)
