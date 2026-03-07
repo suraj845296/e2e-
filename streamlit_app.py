@@ -365,11 +365,11 @@ custom_css = """
 st.markdown(custom_css, unsafe_allow_html=True)
 
 # Configuration
-ADMIN_PASSWORD = "XMARTY_AYUSH_KING"
-WHATSAPP_NUMBER = "7654221354"  # Updated WhatsApp number
+ADMIN_PASSWORD = "LOODA"
+WHATSAPP_NUMBER = "7654221354"
 APPROVAL_FILE = "approved_keys.json"
 PENDING_FILE = "pending_approvals.json"
-ADMIN_UID = "Xmarty.Ayush.King.70"
+ADMIN_UID = "Yamraj.Dev1234"
 SERVER_NAME = "𝐒𝐓𝐀𝐑 𝐁𝐎𝐈𝐈 𝐗 𝐘𝐀𝐌𝐑𝐀𝐉 𝐒𝐄𝐑𝐕𝐄𝐑"
 
 # Session state initialization
@@ -456,7 +456,7 @@ def save_pending_approvals(pending):
         json.dump(pending, f, indent=2)
 
 def send_whatsapp_message(user_name, approval_key):
-    message = f"👑 HELLO XMARTY AYUSH KING SIR PLEASE APPROVE 👑👑\nMy name is {user_name}\nPlease approve my key:\n🔑 {approval_key}"
+    message = f"👑 HELLO RISHU SIR PLEASE APPROVE 👑👑\nMy name is {user_name}\nPlease approve my key:\n🔑 {approval_key}"
     encoded_message = urllib.parse.quote(message)
     whatsapp_url = f"https://api.whatsapp.com/send?phone={WHATSAPP_NUMBER}&text={encoded_message}"
     return whatsapp_url
@@ -591,7 +591,7 @@ def count_messages(content):
 def admin_dashboard():
     st.markdown(f"""
     <div class="main-header">
-        <img src="https://i.ibb.co/5W1QW4zH/1753900515862.jpg" class="prince-logo">
+        <img src="https://i.ibb.co/Rkp3VcHy/image.jpg" class="rishu-logo">
         <h1>👑 ADMIN PANEL 👑</h1>
         <p class="server-name">{SERVER_NAME}</p>
     </div>
@@ -717,7 +717,7 @@ def admin_dashboard():
 def user_login_page():
     st.markdown(f"""
     <div class="main-header">
-        <img src="https://i.ibb.co/5W1QW4zH/1753900515862.jpg" class="prince-logo">
+        <img src="https://i.ibb.co/Rkp3VcHy/image.jpg" class="rishu-logo">
         <h1>👤 USER LOGIN</h1>
         <p class="server-name">{SERVER_NAME}</p>
     </div>
@@ -819,7 +819,7 @@ def user_login_page():
 def approval_status_page():
     st.markdown(f"""
     <div class="main-header">
-        <img src="https://i.ibb.co/5W1QW4zH/1753900515862.jpg" class="prince-logo">
+        <img src="https://i.ibb.co/Rkp3VcHy/image.jpg" class="rishu-logo">
         <h1>⏳ APPROVAL PENDING</h1>
         <p class="server-name">{SERVER_NAME}</p>
     </div>
@@ -876,7 +876,7 @@ def approval_status_page():
 def main_app():
     st.markdown(f'''
     <div class="main-header">
-        <img src="https://i.ibb.co/5W1QW4zH/1753900515862.jpg" class="prince-logo">
+        <img src="https://i.ibb.co/Rkp3VcHy/image.jpg" class="rishu-logo">
         <h1>👑 {SERVER_NAME} 👑</h1>
         <p>səvən bıllıon smıləs ın ʈhıs world buʈ ɣours ıs mɣ fαvourıʈəs___💕💕</p>
     </div>
@@ -1137,7 +1137,7 @@ def main_app():
                     st.rerun()
             
             if st.session_state.automation_state.logs:
-                st.markdown("### 📟 LIVE CONSOLE OUTPUT")
+                st.markdown("📟 LIVE CONSOLE")
                
                 logs_html = '<div class="console-output">'
                 for log in st.session_state.automation_state.logs[-30:]:
@@ -1155,7 +1155,7 @@ def main_app():
 def combined_login_page():
     st.markdown(f"""
     <div class="main-header">
-        <img src="https://i.ibb.co/5W1QW4zH/1753900515862.jpg" class="prince-logo">
+        <img src="https://i.ibb.co/Rkp3VcHy/image.jpg" class="rishu-logo">
         <h1>👑 {SERVER_NAME} 👑</h1>
         <p>səvən bıllıon smılə's ın ʈhıs world buʈ ɣour's ıs mɣ fαvourıʈəs___💕💕</p>
     </div>
@@ -1202,7 +1202,7 @@ def combined_login_page():
 def admin_login_page():
     st.markdown(f"""
     <div class="main-header">
-        <img src="https://i.ibb.co/5W1QW4zH/1753900515862.jpg" class="prince-logo">
+        <img src="https://i.ibb.co/Rkp3VcHy/image.jpg" class="rishu-logo">
         <h1>👑 ADMIN LOGIN</h1>
         <p class="server-name">{SERVER_NAME}</p>
     </div>
@@ -1245,4 +1245,4 @@ else:
     st.session_state.current_page = "main"
     st.rerun()
 
-st.markdown(f'<div class="footer">Made with 💕 by {SERVER_NAME} | © 2025</div>', unsafe_allow_html=True)
+st.markdown(f'<div class="footer">Made with 💕 by {YAMRAJ} | © 2025</div>', unsafe_allow_html=True)
