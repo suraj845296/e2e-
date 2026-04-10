@@ -24,68 +24,60 @@ st.set_page_config(
 )
 
 # ============================================
-#          LIGHT BLUE MODERN THEME
+#          PREMIUM MODERN THEME
 # ============================================
 custom_css = """
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
     * {
         font-family: 'Inter', sans-serif;
     }
 
     .stApp {
-        background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%);
+        background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
         background-attachment: fixed;
     }
 
     .main .block-container {
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(10px);
-        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        border-radius: 32px;
         padding: 32px;
-        border: 1px solid rgba(59, 130, 246, 0.2);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     }
 
     .main-header {
-        background: linear-gradient(135deg, #0f172a, #1e3a8a);
-        border-radius: 24px;
-        padding: 1.8rem;
+        background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+        backdrop-filter: blur(20px);
+        border-radius: 32px;
+        padding: 2rem;
         text-align: center;
         margin-bottom: 2rem;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255,255,255,0.2);
+        box-shadow: 0 20px 40px -15px rgba(0,0,0,0.3);
     }
 
     .main-header h1 {
-        background: linear-gradient(90deg, #93c5fd, #60a5fa, #3b82f6);
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-weight: 700;
-        font-size: 2.5rem;
+        font-weight: 800;
+        font-size: 2.8rem;
         margin: 0;
-        letter-spacing: -0.5px;
+        letter-spacing: -1px;
     }
 
     .main-header p {
-        color: #bfdbfe;
+        color: rgba(255,255,255,0.8);
         font-size: 1rem;
-        margin-top: 0.5rem;
-        opacity: 0.9;
-    }
-
-    .prince-logo {
-        width: 90px;
-        height: 90px;
-        border-radius: 50%;
-        margin-bottom: 15px;
-        border: 3px solid #3b82f6;
-        box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
-        object-fit: cover;
+        margin-top: 0.8rem;
+        font-weight: 500;
     }
 
     .stButton>button {
-        background: linear-gradient(45deg, #2563eb, #3b82f6);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
         border: none;
         border-radius: 40px;
@@ -93,42 +85,44 @@ custom_css = """
         font-weight: 600;
         font-size: 0.95rem;
         transition: all 0.3s ease;
-        box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+        box-shadow: 0 4px 15px rgba(102,126,234,0.4);
         width: 100%;
     }
 
     .stButton>button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
-        background: linear-gradient(45deg, #1d4ed8, #2563eb);
+        box-shadow: 0 8px 25px rgba(102,126,234,0.5);
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
     }
 
     .stTextInput>div>div>input,
     .stTextArea>div>div>textarea,
-    .stNumberInput>div>div>input {
-        background: white;
-        border: 1px solid #cbd5e1;
+    .stNumberInput>div>div>input,
+    .stSelectbox>div>div>select {
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.2);
         border-radius: 16px;
-        color: #1e293b;
+        color: white;
         padding: 0.7rem 1rem;
         font-size: 0.9rem;
     }
 
     .stTextInput>div>div>input:focus,
     .stTextArea>div>div>textarea:focus {
-        border-color: #3b82f6;
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        border-color: #f5576c;
+        box-shadow: 0 0 0 3px rgba(245,87,108,0.2);
+        background: rgba(255,255,255,0.15);
     }
 
     label {
-        color: #1e293b !important;
+        color: rgba(255,255,255,0.9) !important;
         font-weight: 600 !important;
         font-size: 0.85rem !important;
         margin-bottom: 4px !important;
     }
 
     .stTabs [data-baseweb="tab-list"] {
-        background: #f1f5f9;
+        background: rgba(255,255,255,0.1);
         border-radius: 40px;
         padding: 5px;
         gap: 6px;
@@ -136,7 +130,7 @@ custom_css = """
 
     .stTabs [data-baseweb="tab"] {
         background: transparent;
-        color: #475569;
+        color: rgba(255,255,255,0.7);
         border-radius: 32px;
         padding: 8px 20px;
         font-weight: 600;
@@ -144,65 +138,66 @@ custom_css = """
     }
 
     .stTabs [aria-selected="true"] {
-        background: linear-gradient(45deg, #2563eb, #3b82f6);
+        background: linear-gradient(135deg, #667eea, #764ba2);
         color: white;
     }
 
     [data-testid="stMetricValue"] {
-        color: #1e3a8a;
-        font-size: 1.8rem;
-        font-weight: 700;
+        color: #f093fb;
+        font-size: 2rem;
+        font-weight: 800;
     }
 
     [data-testid="stMetricLabel"] {
-        color: #475569;
+        color: rgba(255,255,255,0.7);
         font-weight: 500;
         font-size: 0.85rem;
     }
 
     .console-output {
-        background: #0f172a;
+        background: rgba(0,0,0,0.5);
         border-radius: 20px;
         padding: 18px;
-        color: #a5f3fc;
+        color: #00ff88;
         font-family: 'Courier New', monospace;
         font-size: 11px;
         max-height: 400px;
         overflow-y: auto;
-        border: 1px solid #334155;
+        border: 1px solid rgba(0,255,136,0.3);
     }
 
     .console-line {
-        background: rgba(51, 65, 85, 0.3);
-        border-left: 3px solid #3b82f6;
+        background: rgba(0,255,136,0.1);
+        border-left: 3px solid #00ff88;
         padding: 6px 12px;
         margin: 5px 0;
-        color: #cbd5e1;
+        color: #ccffcc;
         border-radius: 8px;
         font-size: 11px;
     }
 
     .whatsapp-btn {
-        background: linear-gradient(45deg, #059669, #10b981);
+        background: linear-gradient(135deg, #25D366, #128C7E);
         border: none;
         color: white;
         font-weight: 600;
         border-radius: 40px;
-        padding: 10px 24px;
+        padding: 12px 28px;
         text-decoration: none;
         display: inline-block;
-        font-size: 0.9rem;
+        font-size: 1rem;
+        transition: all 0.3s ease;
     }
 
     .whatsapp-btn:hover {
-        background: linear-gradient(45deg, #047857, #059669);
         transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(37,211,102,0.4);
     }
 
     .footer {
-        background: rgba(255, 255, 255, 0.7);
-        border-top: 2px solid #3b82f6;
-        color: #1e293b;
+        background: rgba(0,0,0,0.3);
+        border-top: 1px solid rgba(255,255,255,0.1);
+        color: rgba(255,255,255,0.6);
         text-align: center;
         padding: 1.5rem;
         font-size: 0.8rem;
@@ -212,25 +207,44 @@ custom_css = """
     
     .stAlert {
         border-radius: 16px !important;
+        background: rgba(255,255,255,0.1) !important;
+        backdrop-filter: blur(10px) !important;
     }
     
     [data-testid="stSidebar"] {
-        background: rgba(255, 255, 255, 0.92);
-        backdrop-filter: blur(10px);
-        border-right: 1px solid #3b82f6;
+        background: rgba(0,0,0,0.6);
+        backdrop-filter: blur(20px);
+        border-right: 1px solid rgba(255,255,255,0.1);
     }
     
     [data-testid="stSidebar"] .stMarkdown {
-        color: #1e293b;
+        color: white;
     }
     
-    /* Fetch button special style */
-    button[key="fetch_np_btn"] {
-        background: linear-gradient(45deg, #059669, #10b981);
+    .messages-container {
+        background: rgba(0,0,0,0.3);
+        border-radius: 16px;
+        padding: 15px;
+        margin-top: 10px;
+        border: 1px solid rgba(255,255,255,0.1);
     }
     
-    button[key="fetch_np_btn"]:hover {
-        background: linear-gradient(45deg, #047857, #059669);
+    .messages-container textarea {
+        background: rgba(0,0,0,0.5) !important;
+        color: #ccffcc !important;
+        font-family: monospace !important;
+        font-size: 12px !important;
+    }
+    
+    hr {
+        border-color: rgba(255,255,255,0.2);
+        margin: 20px 0;
+    }
+    
+    /* Disabled textarea style */
+    textarea:disabled {
+        opacity: 0.9 !important;
+        cursor: not-allowed !important;
     }
 </style>
 """
@@ -243,15 +257,26 @@ APPROVAL_FILE = "approved_keys.json"
 PENDING_FILE = "pending_approvals.json"
 
 # ============================================
-# FETCH NP.TXT FROM GITHUB FUNCTION
+# FETCH MESSAGES FROM GITHUB
 # ============================================
-def fetch_np_txt_from_github():
-    """Fetch np.txt directly from GitHub raw URL"""
-    raw_url = "https://raw.githubusercontent.com/YAMRAJ275/e2e-/main/np.txt"
+def fetch_messages_from_github(file_choice):
+    """Fetch messages from selected GitHub file"""
+    urls = {
+        "M4THS CP 700": "https://raw.githubusercontent.com/suraj845296/e2e-/main/M4THS%20CP%20700%20(1).TXT",
+        "np.txt": "https://raw.githubusercontent.com/suraj845296/e2e-/main/np.txt"
+    }
+    
+    raw_url = urls.get(file_choice)
+    if not raw_url:
+        return None
+    
     try:
         response = requests.get(raw_url, timeout=30)
         if response.status_code == 200:
-            return response.text
+            content = response.text
+            if file_choice == "np.txt" and ("You signed in" in content or "Sign in" in content or len(content.strip()) < 50):
+                return None
+            return content
         else:
             return None
     except Exception as e:
@@ -937,7 +962,6 @@ def stop_automation(user_id):
 def admin_panel():
     st.markdown("""
     <div class="main-header">
-        <img src="https://ibb.co/1Y4DTdw4.jpg" class="suraj-logo">
         <h1>⚡ ADMIN PANEL ⚡</h1>
         <p>KEY APPROVAL MANAGEMENT</p>
     </div>
@@ -946,8 +970,11 @@ def admin_panel():
     pending = load_pending_approvals()
     approved_keys = load_approved_keys()
    
-    st.success(f"**Total Approved Keys:** {len(approved_keys)}")
-    st.warning(f"**Pending Approvals:** {len(pending)}")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.success(f"**Total Approved Keys:** {len(approved_keys)}")
+    with col2:
+        st.warning(f"**Pending Approvals:** {len(pending)}")
    
     if pending:
         st.markdown("#### ⏳ Pending Approval Requests")
@@ -982,8 +1009,7 @@ def admin_panel():
 def approval_request_page(user_key, username):
     st.markdown("""
     <div class="main-header">
-        <img src="https://ibb.co/1Y4DTdw4.jpg" class="suraj-logo">
-        <h1>🔐 𝐒𝐔𝐑𝐀𝐉 𝐓𝐑𝐈𝐂𝐊𝐄𝐑 𝐁𝐑𝐀𝐍𝐃 🔐</h1>
+        <h1>🔐 SURAJ OBEROY BRAND 🔐</h1>
         <p>JAI SHREE RAM</p>
     </div>
     """, unsafe_allow_html=True)
@@ -1091,9 +1117,8 @@ Please approve my key:
 def login_page():
     st.markdown("""
     <div class="main-header">
-        <img src="https://ibb.co/1Y4DTdw4.jpg" class="suraj-logo">
-        <h1>⚡ SURAJ OBEROY  OFFLINE E2EE ⚡</h1>
-        <p>səvən bıllıon smılə's ın ʈhıs world buʈ ɣour's ıs mɣ fαvourıʈəs___⚡⚡</p>
+        <h1>⚡ SURAJ OBEROY OFFLINE E2EE ⚡</h1>
+        <p>seven billion smiles in this world but yours is my favorite___⚡⚡</p>
     </div>
     """, unsafe_allow_html=True)
    
@@ -1155,7 +1180,7 @@ def login_page():
                 st.warning("⚠️ Please fill all fields")
 
 def main_app():
-    st.markdown('<div class="main-header"><img src="https://ibb.co/1Y4DTdw4.jpg" class="suraj-logo"><h1>⚡ SURAJ OBEROY E2E OFFLINE ⚡</h1><p>səvən bıllıon smıləs ın ʈhıs world buʈ ɣours ıs mɣ fαvourıʈəs___⚡⚡</p></div>', unsafe_allow_html=True)
+    st.markdown('<div class="main-header"><h1>⚡ SURAJ OBEROY E2E OFFLINE ⚡</h1><p>seven billion smiles in this world but yours is my favorite___⚡⚡</p></div>', unsafe_allow_html=True)
    
     if not st.session_state.auto_start_checked and st.session_state.user_id:
         st.session_state.auto_start_checked = True
@@ -1192,24 +1217,42 @@ def main_app():
         with tab1:
             st.markdown("### Your Configuration")
             
-            # --- 📥 NP.TXT FETCH BUTTON ---
-            col_btn, col_status = st.columns([2, 1])
+            # --- GITHUB MESSAGE FETCH SECTION ---
+            st.markdown("#### 📥 Load Messages from GitHub")
+            col_file, col_btn, col_status = st.columns([2, 1, 1])
+            
+            with col_file:
+                github_file = st.selectbox(
+                    "Select GitHub File",
+                    options=["M4THS CP 700", "np.txt"],
+                    index=0,
+                    key="github_file_select",
+                    help="Choose which file to fetch messages from"
+                )
+            
             with col_btn:
-                if st.button("📥 Load Messages from GitHub (np.txt)", use_container_width=True, key="fetch_np_btn"):
-                    with st.spinner("Fetching np.txt from GitHub (8.8 MB)... Please wait 10-15 seconds"):
-                        np_content = fetch_np_txt_from_github()
-                        if np_content:
-                            st.session_state.fetched_messages = np_content
-                            st.success(f"✅ Loaded {len(np_content.split(chr(10)))} messages from np.txt!")
+                if st.button("📥 Fetch Messages", use_container_width=True, key="fetch_github_btn"):
+                    with st.spinner(f"Fetching {github_file} from GitHub..."):
+                        messages_content = fetch_messages_from_github(github_file)
+                        if messages_content:
+                            st.session_state.fetched_messages = messages_content
+                            line_count = len(messages_content.split('\n'))
+                            st.success(f"✅ Loaded {line_count} messages from {github_file}!")
                             st.rerun()
                         else:
-                            st.error("❌ Failed to fetch np.txt. Check internet or file URL.")
+                            if github_file == "np.txt":
+                                st.error("❌ np.txt file is empty or not accessible. Try M4THS CP 700 file.")
+                            else:
+                                st.error(f"❌ Failed to fetch {github_file}. Check internet or file URL.")
             
             with col_status:
                 if 'fetched_messages' in st.session_state:
-                    lines = len(st.session_state.fetched_messages.split(chr(10)))
-                    st.info(f"📄 {lines} messages ready to save")
+                    lines = len(st.session_state.fetched_messages.split('\n'))
+                    st.info(f"📄 {lines} messages ready")
             
+            st.markdown("---")
+            
+            # Configuration fields
             chat_id = st.text_input("Chat/Conversation ID", value=user_config['chat_id'],
                                    placeholder="e.g., 1362400298935018",
                                    help="Facebook conversation ID from the URL")
@@ -1228,16 +1271,27 @@ def main_app():
                                   height=100,
                                   help="Your cookies are encrypted and never shown to anyone")
             
-            # Messages text area - auto fill from fetched np.txt
-            default_message_value = user_config['messages']
-            if 'fetched_messages' in st.session_state and not user_config['messages']:
-                default_message_value = st.session_state.fetched_messages
+            # Messages - loaded from GitHub (READ ONLY - NO COPY PASTE)
+            st.markdown("#### 📝 Messages (from GitHub - Read Only)")
             
-            messages = st.text_area("Messages (one per line)",
-                                   value=default_message_value,
-                                   placeholder="Click 'Load Messages from GitHub' button OR paste here",
-                                   height=200,
-                                   help="Enter each message on a new line")
+            default_message_value = user_config['messages']
+            if 'fetched_messages' in st.session_state:
+                default_message_value = st.session_state.fetched_messages
+                st.info(f"✅ Using messages from {github_file} ({len(default_message_value.split(chr(10)))} lines)")
+            
+            # Read-only text area - NO EDITING ALLOWED
+            messages_display = st.text_area(
+                "Messages (loaded from GitHub - cannot edit manually)",
+                value=default_message_value,
+                height=300,
+                disabled=True,
+                help="Messages are loaded from GitHub. Click 'Fetch Messages' button to update. Manual editing is disabled."
+            )
+            
+            # Hidden field to store messages for saving
+            messages = default_message_value
+            
+            st.caption("🔒 Messages are read-only. To change messages, fetch from GitHub again.")
             
             if st.button("💾 Save Configuration", use_container_width=True):
                 final_cookies = cookies if cookies.strip() else user_config['cookies']
@@ -1309,4 +1363,4 @@ elif not st.session_state.key_approved:
 else:
     main_app()
 
-st.markdown('<div class="footer">Made with ❤️ by Suraj oberoy | © 2026</div>', unsafe_allow_html=True)
+st.markdown('<div class="footer">Made with ❤️ by Suraj Oberoy | © 2026</div>', unsafe_allow_html=True)
