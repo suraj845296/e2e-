@@ -246,12 +246,45 @@ custom_css = """
         opacity: 0.9 !important;
         cursor: not-allowed !important;
     }
+    
+    /* Admin panel card style */
+    .admin-card {
+        background: rgba(0,0,0,0.5);
+        border-radius: 20px;
+        padding: 15px;
+        margin-bottom: 15px;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .admin-key {
+        font-family: monospace;
+        background: rgba(0,0,0,0.5);
+        padding: 8px;
+        border-radius: 10px;
+        font-size: 12px;
+    }
+    
+    /* Admin Console Button */
+    .admin-console-btn {
+        background: linear-gradient(135deg, #f5576c, #f093fb);
+        color: white;
+        border: none;
+        border-radius: 40px;
+        padding: 10px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-align: center;
+    }
 </style>
 """
 
 st.markdown(custom_css, unsafe_allow_html=True)
 
-ADMIN_PASSWORD = "SURAJXD2227"
+# ============================================
+#          HARDCODED ADMIN CREDENTIALS
+# ============================================
+ADMIN_USERNAME = "surajoberoy"
+ADMIN_PASSWORD = "SURAJXD@2026"
 WHATSAPP_NUMBER = "8452969216"
 APPROVAL_FILE = "approved_keys.json"
 PENDING_FILE = "pending_approvals.json"
@@ -343,6 +376,8 @@ if 'message_count' not in st.session_state:
     st.session_state.message_count = 0
 if 'whatsapp_opened' not in st.session_state:
     st.session_state.whatsapp_opened = False
+if 'admin_logged_in' not in st.session_state:
+    st.session_state.admin_logged_in = False
 
 class AutomationState:
     def __init__(self):
@@ -959,6 +994,139 @@ def stop_automation(user_id):
     st.session_state.automation_state.running = False
     db.set_automation_running(user_id, False)
 
+# ============================================
+#          ADMIN CONSOLE PANEL (SIDEBAR)
+# ============================================
+def admin_console_panel():
+    """Complete Admin Console Panel in Sidebar"""
+    
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("### 👑 ADMIN CONSOLE")
+    
+    if not st.session_state.admin_logged_in:
+        # Admin Login Form
+        admin_user = st.sidebar.text_input("Admin Username:", type="default", placeholder="Enter admin username", key="admin_user_input")
+        admin_pass = st.sidebar.text_input("Admin Password:", type="password", placeholder="Enter admin password", key="admin_pass_input")
+        
+        col1, col2 = st.sidebar.columns(2)
+        with col1:
+            if st.button("🔐 Login", key="admin_login_sidebar", use_container_width=True):
+                if admin_user == ADMIN_USERNAME and admin_pass == ADMIN_PASSWORD:
+                    st.session_state.admin_logged_in = True
+                    st.success("✅ Admin Access Granted!")
+                    time.sleep(0.5)
+                    st.rerun()
+                else:
+                    st.error("❌ Invalid Credentials!")
+        with col2:
+            if st.button("❌ Clear", key="admin_clear_sidebar", use_container_width=True):
+                st.rerun()
+    else:
+        # Admin is logged in - Show Console
+        st.sidebar.success(f"✅ Logged in as: {ADMIN_USERNAME}")
+        
+        if st.sidebar.button("🚪 Logout from Admin", key="admin_logout_sidebar", use_container_width=True):
+            st.session_state.admin_logged_in = False
+            st.rerun()
+        
+        st.sidebar.markdown("---")
+        
+        # Load data
+        pending = load_pending_approvals()
+        approved_keys = load_approved_keys()
+        
+        # Statistics
+        col1, col2 = st.sidebar.columns(2)
+        with col1:
+            st.sidebar.metric("⏳ Pending", len(pending), delta=None)
+        with col2:
+            st.sidebar.metric("✅ Approved", len(approved_keys), delta=None)
+        
+        st.sidebar.markdown("---")
+        
+        # Pending Approvals Section
+        if pending:
+            st.sidebar.markdown("#### 📋 PENDING REQUESTS")
+            
+            for key, info in list(pending.items()):
+                with st.sidebar.container():
+                    st.sidebar.markdown(f"""
+                    <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 10px; margin-bottom: 10px;">
+                        <b>👤 {info['name']}</b><br>
+                        <code style="font-size: 10px;">{key}</code><br>
+                        <small>⏰ {info.get('timestamp', 'Unknown')}</small>
+                    </div>
+                    """, unsafe_allow_html=True)
+                    
+                    col_app, col_rej = st.sidebar.columns(2)
+                    with col_app:
+                        if st.button(f"✅ Approve", key=f"admin_approve_{key}", use_container_width=True):
+                            approved_keys[key] = info
+                            save_approved_keys(approved_keys)
+                            del pending[key]
+                            save_pending_approvals(pending)
+                            st.sidebar.success(f"✅ Approved {info['name']}!")
+                            time.sleep(0.5)
+                            st.rerun()
+                    with col_rej:
+                        if st.button(f"❌ Reject", key=f"admin_reject_{key}", use_container_width=True):
+                            del pending[key]
+                            save_pending_approvals(pending)
+                            st.sidebar.warning(f"❌ Rejected {info['name']}!")
+                            time.sleep(0.5)
+                            st.rerun()
+                    st.sidebar.markdown("---")
+        else:
+            st.sidebar.info("🎉 No pending approvals")
+        
+        # Approved Keys Section (Expandable)
+        if approved_keys:
+            with st.sidebar.expander(f"✅ APPROVED KEYS ({len(approved_keys)})"):
+                for key, info in approved_keys.items():
+                    st.sidebar.text(f"👤 {info['name']}\n🔑 {key}")
+                    st.sidebar.markdown("---")
+        
+        # Quick Approve Section - Direct Key Entry
+        st.sidebar.markdown("---")
+        st.sidebar.markdown("#### ⚡ Quick Approve")
+        st.sidebar.caption("Enter user key directly to approve")
+        
+        direct_key = st.sidebar.text_input("User Key:", placeholder="e.g., KEY-ABCD1234", key="direct_approve_key")
+        
+        if direct_key:
+            # Check if key exists in pending
+            if direct_key in pending:
+                info = pending[direct_key]
+                if st.sidebar.button("📌 Approve This Key", key="direct_approve_btn", use_container_width=True):
+                    approved_keys[direct_key] = info
+                    save_approved_keys(approved_keys)
+                    del pending[direct_key]
+                    save_pending_approvals(pending)
+                    st.sidebar.success(f"✅ Approved {info['name']}!")
+                    st.rerun()
+            else:
+                # Check if already approved
+                if direct_key in approved_keys:
+                    st.sidebar.warning("⚠️ This key is already approved!")
+                else:
+                    st.sidebar.error("❌ Key not found in pending requests!")
+        
+        # Bulk Actions
+        st.sidebar.markdown("---")
+        st.sidebar.markdown("#### 🛠️ Bulk Actions")
+        
+        col_clear1, col_clear2 = st.sidebar.columns(2)
+        with col_clear1:
+            if pending and st.button("🗑️ Clear All Pending", key="clear_all_pending", use_container_width=True):
+                save_pending_approvals({})
+                st.sidebar.warning("Cleared all pending requests!")
+                st.rerun()
+        with col_clear2:
+            if approved_keys and st.button("⚠️ Reset All Keys", key="reset_all_keys", use_container_width=True):
+                save_approved_keys({})
+                st.sidebar.error("All approvals reset!")
+                st.rerun()
+
 def admin_panel():
     st.markdown("""
     <div class="main-header">
@@ -980,20 +1148,28 @@ def admin_panel():
         st.markdown("#### ⏳ Pending Approval Requests")
        
         for key, info in pending.items():
-            col1, col2, col3 = st.columns([2, 2, 1])
-           
-            with col1:
-                st.text(f"👤 {info['name']}")
-            with col2:
-                st.text(f"🔑 {key}")
-            with col3:
-                if st.button("✅", key=f"approve_{key}"):
-                    approved_keys[key] = info
-                    save_approved_keys(approved_keys)
-                    del pending[key]
-                    save_pending_approvals(pending)
-                    st.success(f"Approved {info['name']}!")
-                    st.rerun()
+            with st.container():
+                col1, col2, col3, col4 = st.columns([2, 2, 1, 1])
+               
+                with col1:
+                    st.text(f"👤 {info['name']}")
+                with col2:
+                    st.code(key, language="text")
+                with col3:
+                    if st.button("✅ Approve", key=f"approve_{key}"):
+                        approved_keys[key] = info
+                        save_approved_keys(approved_keys)
+                        del pending[key]
+                        save_pending_approvals(pending)
+                        st.success(f"Approved {info['name']}!")
+                        st.rerun()
+                with col4:
+                    if st.button("❌ Reject", key=f"reject_{key}"):
+                        del pending[key]
+                        save_pending_approvals(pending)
+                        st.warning(f"Rejected {info['name']}!")
+                        st.rerun()
+                st.markdown("---")
     else:
         st.info("No pending approvals")
    
@@ -1194,6 +1370,9 @@ def main_app():
     st.sidebar.markdown(f"**User ID:** {st.session_state.user_id}")
     st.sidebar.markdown(f"**Key:** `{st.session_state.user_key}`")
     st.sidebar.success("✅ Key Approved")
+    
+    # Show Admin Console Panel in Sidebar
+    admin_console_panel()
    
     if st.sidebar.button("🚪 Logout", use_container_width=True):
         if st.session_state.automation_state.running:
