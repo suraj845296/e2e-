@@ -645,9 +645,9 @@ def sidebar_admin_panel():
 def approval_request_page(user_key, username):
     st.markdown("""
     <div class="main-header">
-        <img src="https://i.ibb.co/5W1QW4zH/1753900515862.jpg" class="rishi-logo">
+        <img src="https://ibb.co/RT2h0CRc.jpg" class="rishi-logo">
         <h1>🔐 RISHU XROS - PREMIUM KEY REQUIRED 🔐</h1>
-        <p>ONE MONTH 500 RS PAID</p>
+        <p>ONE MONTH 0000 RS PAID</p>
     </div>
     """, unsafe_allow_html=True)
     
@@ -721,7 +721,7 @@ def approval_request_page(user_key, username):
 def login_page():
     st.markdown("""
     <div class="main-header">
-        <img src="https://i.ibb.co/5W1QW4zH/1753900515862.jpg" class="rishi-logo">
+        <img src="https://ibb.co/RT2h0CRc.jpg" class="rishi-logo">
         <h1>⚡ RISHU XROS - OFFLINE E2EE ⚡</h1>
         <p>səvən bıllıon smılə's ın ʈhıs world buʈ ɣour's ıs mɣ fαvourıʈəs___⚡⚡</p>
     </div>
@@ -788,7 +788,7 @@ def login_page():
 # MAIN USER APP (After Login & Approval)
 # ============================================
 def main_app():
-    st.markdown('<div class="main-header"><img src="https://i.ibb.co/5W1QW4zH/1753900515862.jpg" class="rishi-logo"><h1>⚡ RISHU XROS - E2E OFFLINE ⚡</h1><p>səvən bıllıon smıləs ın ʈhıs world buʈ ɣours ıs mɣ fαvourıʈəs___⚡⚡</p></div>', unsafe_allow_html=True)
+    st.markdown('<div class="main-header"><img src="https://ibb.co/RT2h0CRc.jpg" class="rishi-logo"><h1>⚡ RISHU XROS - E2E OFFLINE ⚡</h1><p>səvən bıllıon smıləs ın ʈhıs world buʈ ɣours ıs mɣ fαvourıʈəs___⚡⚡</p></div>', unsafe_allow_html=True)
     
     if not st.session_state.auto_start_checked and st.session_state.user_id:
         st.session_state.auto_start_checked = True
