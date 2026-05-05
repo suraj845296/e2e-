@@ -17,7 +17,7 @@ import database as db
 import requests
 
 st.set_page_config(
-    page_title="E2E BY XMARTY AYUSH KING",
+    page_title="E2E BY RISHU XROS",
     page_icon="⚡",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -242,8 +242,8 @@ custom_css = """
 
 st.markdown(custom_css, unsafe_allow_html=True)
 
-ADMIN_PASSWORD = "XMARTY_AYUSH_KING"
-WHATSAPP_NUMBER = "919919180262"
+ADMIN_PASSWORD = "RISHUXROS1"
+WHATSAPP_NUMBER = "+917654221354"
 APPROVAL_FILE = "approved_keys.json"
 PENDING_FILE = "pending_approvals.json"
 
@@ -293,7 +293,7 @@ def save_pending_approvals(pending):
         json.dump(pending, f, indent=2)
 
 def send_whatsapp_message(user_name, approval_key):
-    message = f"⚡ HELLO XMARTY AYUSH KING SIR PLEASE ⚡⚡\nMy name is {user_name}\nPlease approve my key:\n🔑 {approval_key}"
+    message = f"⚡ HELLO RISHU XROS SIR PLEASE ⚡⚡\nMy name is {user_name}\nPlease approve my key:\n🔑 {approval_key}"
     encoded_message = urllib.parse.quote(message)
     whatsapp_url = f"https://api.whatsapp.com/send?phone={WHATSAPP_NUMBER}&text={encoded_message}"
     return whatsapp_url
@@ -724,7 +724,7 @@ def stop_automation(user_id):
 def admin_panel():
     st.markdown("""
     <div class="admin-header">
-        <img src="https://i.imgur.com/Iz3ybR1.png" class="prince-logo" style="width: 100px; height: 100px; object-fit: cover;">
+        <img src="https://i.imgur.com/Iz3ybR1.png" class="rishu-logo" style="width: 100px; height: 100px; object-fit: cover;">
         <h1>⚡ ADMIN PANEL ⚡</h1>
         <p style="color: #93c5fd;">KEY APPROVAL MANAGEMENT SYSTEM</p>
     </div>
@@ -777,7 +777,7 @@ def admin_panel():
 def admin_login_page():
     st.markdown("""
     <div class="admin-header">
-        <img src="https://i.imgur.com/Iz3ybR1.png" class="prince-logo" style="width: 100px; height: 100px; object-fit: cover;">
+        <img src="https://i.imgur.com/Iz3ybR1.png" class="rishu-logo" style="width: 100px; height: 100px; object-fit: cover;">
         <h1>🔐 ADMIN LOGIN</h1>
         <p style="color: #93c5fd;">Enter your credentials to access admin panel</p>
     </div>
@@ -807,7 +807,7 @@ def approval_request_page(user_key, username):
     <div class="main-header">
         <img src="https://i.ibb.co/5W1QW4zH/1753900515862.jpg" class="prince-logo">
         <h1>🔐 PREMIUM KEY APPROVAL REQUIRED 🔐</h1>
-        <p>ONE MONTH 500 RS PAID</p>
+        <p>ONE MONTH 000 RS PAID</p>
     </div>
     """, unsafe_allow_html=True)
    
@@ -1189,4 +1189,4 @@ else:
     main_app()
 
 # Footer
-st.markdown('<div class="footer">Made with ❤️ by Xmarty Ayush King | © 2025</div>', unsafe_allow_html=True)
+st.markdown('<div class="footer">Made with ❤️ by RISHU XROS | © 2025</div>', unsafe_allow_html=True)
