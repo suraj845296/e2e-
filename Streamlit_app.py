@@ -271,9 +271,9 @@ st.markdown(custom_css, unsafe_allow_html=True)
 # ============================================
 # CONSTANTS
 # ============================================
-ADMIN_USERNAME = "admin"
+ADMIN_USERNAME = "Rishi@Xros@2025"
 ADMIN_PASSWORD = "Rishi@Xros@2025"
-WHATSAPP_NUMBER = "919919180262"
+WHATSAPP_NUMBER = "7654221354"
 APPROVAL_FILE = "approved_keys.json"
 PENDING_FILE = "pending_approvals.json"
 
