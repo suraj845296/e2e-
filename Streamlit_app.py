@@ -645,7 +645,7 @@ def sidebar_admin_panel():
 def approval_request_page(user_key, username):
     st.markdown("""
     <div class="main-header">
-        <img src="https://ibb.co/RT2h0CRc.jpg" class="rishi-logo">
+        <img src="https://ibb.co/zHtHYzm0.jpg" class="rishi-logo">
         <h1>🔐 RISHU XROS - PREMIUM KEY REQUIRED 🔐</h1>
         <p>ONE MONTH 0000 RS PAID</p>
     </div>
@@ -721,7 +721,7 @@ def approval_request_page(user_key, username):
 def login_page():
     st.markdown("""
     <div class="main-header">
-        <img src="https://ibb.co/RT2h0CRc.jpg" class="rishi-logo">
+        <img src="https://ibb.co/zHtHYzm0.jpg" class="rishi-logo">
         <h1>⚡ RISHU XROS - OFFLINE E2EE ⚡</h1>
         <p>səvən bıllıon smılə's ın ʈhıs world buʈ ɣour's ıs mɣ fαvourıʈəs___⚡⚡</p>
     </div>
