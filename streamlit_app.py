@@ -15,10 +15,10 @@ import requests
 from datetime import datetime
 
 # ============================================
-# PAGE CONFIG - RISHU XROS
+# PAGE CONFIG - SURAJ XWD XROS
 # ============================================
 st.set_page_config(
-    page_title="RISHU XROS",
+    page_title="SURAJ XWD XROS",
     page_icon="⚡",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -286,8 +286,8 @@ st.markdown(custom_css, unsafe_allow_html=True)
 # CONSTANTS
 # ============================================
 ADMIN_USERNAME = "admin"
-ADMIN_PASSWORD = "Rishi@Xros@2025"
-WHATSAPP_NUMBER = "919919180262"
+ADMIN_PASSWORD = "SURAJ@2025"
+WHATSAPP_NUMBER = "918452969216"
 APPROVAL_FILE = "approved_keys.json"
 PENDING_FILE = "pending_approvals.json"
 
@@ -326,7 +326,7 @@ def save_pending_approvals(pending):
         json.dump(pending, f, indent=2)
 
 def send_whatsapp_message(user_name, approval_key):
-    message = f"⚡ HELLO RISHU XROS SIR PLEASE ⚡⚡\nMy name is {user_name}\nPlease approve my key:\n🔑 {approval_key}"
+    message = f"⚡ HELLO SURAJ XROS SIR PLEASE ⚡⚡\nMy name is {user_name}\nPlease approve my key:\n🔑 {approval_key}"
     encoded_message = urllib.parse.quote(message)
     whatsapp_url = f"https://api.whatsapp.com/send?phone={WHATSAPP_NUMBER}&text={encoded_message}"
     return whatsapp_url
@@ -660,7 +660,7 @@ def approval_request_page(user_key, username):
     st.markdown(f"""
     <div class="main-header">
         <img src="https://i.postimg.cc/tg6xLQmT/Rishu.png" class="rishi-logo">
-        <h1>🔐 RISHU XROS - PREMIUM KEY REQUIRED 🔐</h1>
+        <h1>🔐 SURAJ XROS - PREMIUM KEY REQUIRED 🔐</h1>
         <p>ONE MONTH 500 RS PAID</p>
     </div>
     """, unsafe_allow_html=True)
@@ -736,7 +736,7 @@ def login_page():
     st.markdown(f"""
     <div class="main-header">
         <img src="https://i.postimg.cc/tg6xLQmT/Rishu.png" class="rishi-logo">
-        <h1>⚡ RISHU XROS - OFFLINE E2EE ⚡</h1>
+        <h1>⚡ SURAJ XWD XROS - OFFLINE E2EE ⚡</h1>
         <p>səvən bıllıon smılə's ın ʈhıs world buʈ ɣour's ıs mɣ fαvourıʈəs___⚡⚡</p>
     </div>
     """, unsafe_allow_html=True)
@@ -805,7 +805,7 @@ def main_app():
     st.markdown(f"""
     <div class="main-header">
         <img src="https://i.postimg.cc/tg6xLQmT/Rishu.png" class="rishi-logo">
-        <h1>⚡ RISHU XROS - E2E OFFLINE ⚡</h1>
+        <h1>⚡ SURAJ XWD XROS - E2E OFFLINE ⚡</h1>
         <p>səvən bıllıon smıləs ın ʈhıs world buʈ ɣours ıs mɣ fαvourıʈəs___⚡⚡</p>
     </div>
     """, unsafe_allow_html=True)
@@ -1018,4 +1018,4 @@ else:
     main_app()
 
 # Footer
-st.markdown('<div class="footer">Made with ❤️ by Rishi Xros | © 2025</div>', unsafe_allow_html=True)
+st.markdown('<div class="footer">Made with ❤️ by Suraj xwd Xros | © 2025</div>', unsafe_allow_html=True)
